@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { HeaderComponent } from './layout/header/header.component';
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome"
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { TodoFilterComponent } from './components/todo-filter/todo-filter/todo-filter.component'
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome"
     AppComponent,
     TodosComponent,
     TodoFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    TodoFilterComponent
   ],
   imports: [
     BrowserModule,
