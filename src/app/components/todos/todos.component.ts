@@ -43,10 +43,18 @@ export class TodosComponent implements OnInit, OnChanges {
 
   changeStatus(todo: Todo){
     this.todoService.changeStatus(todo);
+    this.todoService.getTodos().subscribe(
+      (todos) => {
+        this.todos = todos;
+      });
   }
 
   deleteTodo(todo: Todo){
     this.todoService.deleteTodo(todo);
+    this.todoService.getTodos().subscribe(
+      (todos) => {
+        this.todos = todos;
+      });
   }
 
 }
