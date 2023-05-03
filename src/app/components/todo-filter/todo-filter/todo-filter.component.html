@@ -1,12 +1,7 @@
 <form>
-    <p>Filter: {{ filter }}</p>
+    <p>Filter</p>
 
-    <input id="filterAll" type="radio" name="filter" value="all" [(ngModel)]="filter" checked>
-    <label for="filterAll">All</label>
-
-    <input id="filterRemaining" type="radio" name="filter" value="remaining" [(ngModel)]="filter">
-    <label for="filterRemaining">Remaining</label>
-
-    <input id="filterDone" type="radio" name="filter" value="done" [(ngModel)]="filter">
-    <label for="filterDone">Done</label>
+    <button (click)="filterAll()">All</button>
+    <button (click)="filterRemaining()">Remaining</button>
+    <button (click)="filterDone()">Done</button>
 </form>

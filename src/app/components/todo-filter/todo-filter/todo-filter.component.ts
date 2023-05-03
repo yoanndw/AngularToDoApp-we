@@ -6,11 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-filter.component.css']
 })
 export class TodoFilterComponent implements OnInit {
-  filter = "all";
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  filterAll() {
+
+  }
+
+  filterRemaining() {
+
+  }
+
+  filterDone() {
+
+  }
 }
