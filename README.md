@@ -31,3 +31,17 @@ Quand on a un filtre autre que `all` sélectionné, et qu'on ajoute une tâche, 
 ## Difficultés rencontrées
 
 Je n'ai pas trop compris le système d'Observable utilisé. J'ai donc modifié directement la liste à afficher, sans passer par l'observable. C'est peut-être cela qui cause le bug.
+
+## Exécution
+
+A la racine, lancer : 
+```sh
+npm start
+```
+
+S'il y a l'erreur :
+```
+Error: error:0308010C:digital envelope routines::unsupported
+```
+
+Il faut rajouter la variable d'environnement : `NODE_OPTIONS="--openssl-legacy-provider"`.
