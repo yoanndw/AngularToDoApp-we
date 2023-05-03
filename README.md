@@ -9,14 +9,14 @@ Le projet de base était une TodoList, dont ce dépôt est un fork. Je l'ai modi
 * en cours,
 * toutes les tâches.
 
+L'ensemble des modifications effectuées sont commentées avec `MODIF`.
+
 ## Architecture
 
 Il y a 3 composants : 
 * `todos`: la liste des todos,
 * `todo-form`: input pour créer une tâche,
 * `todo-filter`: filtres (que j'ai créé).
-
-L'ensemble des modifications effectuées sont commentées avec `MODIF`.
 
 Quand on clique sur un bouton du filtre, l'information va au composant `todos` via `app`. Ce changement de filtre déclenche `Todos.ngOnChanges`, qui met à jour les tâches à afficher.
 
