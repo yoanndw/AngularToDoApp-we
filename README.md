@@ -11,6 +11,10 @@ Le projet de base était une TodoList, dont ce dépôt est un fork. Je l'ai modi
 
 L'ensemble des modifications effectuées sont commentées avec `MODIF`.
 
+Voici l'interface finale :
+
+![](app_filter_screenshot.png)
+
 ## Architecture
 
 Il y a 3 composants : 
