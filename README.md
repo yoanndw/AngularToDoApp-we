@@ -34,6 +34,11 @@ Je n'ai pas trop compris le système d'Observable utilisé. J'ai donc modifié d
 
 ## Exécution
 
+A la racine, installer avec : 
+```
+npm i
+```
+
 A la racine, lancer : 
 ```sh
 npm start
