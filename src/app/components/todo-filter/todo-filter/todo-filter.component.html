@@ -1,7 +1,7 @@
 <form>
     <p>Filter</p>
 
-    <button (click)="filterAll()">All</button>
-    <button (click)="filterRemaining()">Remaining</button>
-    <button (click)="filterDone()">Done</button>
+    <button (click)="filterAll.emit()">All</button>
+    <button (click)="filterRemaining.emit()">Remaining</button>
+    <button (click)="filterDone.emit()">Done</button>
 </form>

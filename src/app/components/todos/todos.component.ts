@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TodoService } from 'src/app/service/todo.service';
 import {Todo} from '../../model/todo';
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +12,8 @@ export class TodosComponent implements OnInit {
 
   faTrashAlt = faTrashAlt;
   todos: Todo[] = [];
+
+  @Input() filter = "all";
 
   constructor(private todoService:TodoService) { }
 
