@@ -11,7 +11,6 @@ export class TodoService {
 
   todos: Todo[];
   filter: "done" | "remaining" | "all";
-  selectedTodos: Todo[];
 
   constructor() {
     this.todos = [
@@ -29,7 +28,6 @@ export class TodoService {
       },
     ]
 
-    this.selectedTodos = this.todos;
     this.filter = "all";
    }
 
@@ -42,7 +40,6 @@ export class TodoService {
 
    addTodo(todo: Todo){
      this.todos.push(todo);
-    this.updateSelectedTodos();
    }
 
    changeStatus(todo: Todo){
@@ -56,24 +53,18 @@ export class TodoService {
 
     filterTodos(filter: "all" | "remaining" | "done") {
       this.filter = filter;
-      if (filter == "all") {
-        this.selectedTodos = this.todos;
-      } else if (filter == "remaining") {
-        this.selectedTodos = this.todos.filter(t => !t.isComplete);
-      } else if (filter == "done") {
-        this.selectedTodos = this.todos.filter(t => t.isComplete);
-      }
     }
 
-    // Met à jour la liste des todos sélectionnées lorsqu'on en ajoute ou supprime
-    updateSelectedTodos() {
+    get selectedTodos() {
       if (this.filter == "all") {
-        this.selectedTodos = this.todos;
+        return this.todos;
       } else if (this.filter == "remaining") {
-        this.selectedTodos = this.todos.filter(t => !t.isComplete);
+        return this.todos.filter(t => !t.isComplete);
       } else if (this.filter == "done") {
-        this.selectedTodos = this.todos.filter(t => t.isComplete);
+        return this.todos.filter(t => t.isComplete);
       }
+
+      return []; // N'arrive jamais
     }
 
 
@@ -86,6 +77,5 @@ export class TodoService {
     )
     this.todos.splice(indexOfTodo,1);
 
-    this.updateSelectedTodos();
    }
 }
