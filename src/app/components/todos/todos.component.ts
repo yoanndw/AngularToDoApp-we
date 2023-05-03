@@ -17,6 +17,7 @@ export class TodosComponent implements OnInit, OnChanges {
 
   constructor(private todoService:TodoService) { }
 
+  // MODIF
   ngOnInit(): void {
     console.log("on todos init");
     this.todoService.getTodos().subscribe(
@@ -25,6 +26,7 @@ export class TodosComponent implements OnInit, OnChanges {
       });
   }
 
+  // MODIF
   ngOnChanges(changes: SimpleChanges): void {
     // this.todoService.getTodos().subscribe(
     //   (todos) => {
@@ -43,6 +45,7 @@ export class TodosComponent implements OnInit, OnChanges {
 
   changeStatus(todo: Todo){
     this.todoService.changeStatus(todo);
+    // MODIF
     this.todoService.getTodos().subscribe(
       (todos) => {
         this.todos = todos;
@@ -51,6 +54,7 @@ export class TodosComponent implements OnInit, OnChanges {
 
   deleteTodo(todo: Todo){
     this.todoService.deleteTodo(todo);
+    // MODIF
     this.todoService.getTodos().subscribe(
       (todos) => {
         this.todos = todos;

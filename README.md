@@ -1,27 +1,29 @@
 # TodoApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.7.
+Projet WE, par Yoann DEWILDE.
 
-## Development server
+## Idée
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Le projet de base était une TodoList, dont ce dépôt est un fork. Je l'ai modifiée pour y ajouter un filtre pour afficher les tâches :
+* terminée,
+* en cours,
+* toutes les tâches.
 
-## Code scaffolding
+## Architecture
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Il y a 3 composants : 
+* `todos`: la liste des todos,
+* `todo-form`: input pour créer une tâche,
+* `todo-filter`: filtres (que j'ai créé).
 
-## Build
+L'ensemble des modifications effectuées sont commentées avec `MODIF`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Quand on clique sur un bouton du filtre, l'information va au composant `todos` via `app`. Ce changement de filtre déclenche `Todos.ngOnChanges`, qui met à jour les tâches à afficher.
 
-## Running unit tests
+## Bug
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Quand on a un filtre autre que `all` sélectionné, et qu'on ajoute une tâche, il n'y a pas de mise à jour. Il faut cliquer sur un autre filtre pour qu'elle soit prise en compte.
 
-## Running end-to-end tests
+## Difficultés rencontrées
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Je n'ai pas trop compris le système d'Observable utilisé. J'ai donc modifié directement la liste à afficher, sans passer par l'observable. C'est peut-être cela qui cause le bug.

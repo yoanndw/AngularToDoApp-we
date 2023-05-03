@@ -10,6 +10,8 @@ import {Todo} from './../model/todo';
 export class TodoService {
 
   todos: Todo[];
+
+  // MODIF
   filter: "done" | "remaining" | "all";
 
   constructor() {
@@ -32,6 +34,7 @@ export class TodoService {
    }
 
     getTodos(){
+      // MODIF
       return of(this.selectedTodos);
     // return of(this.selectedTodos).pipe(
     //   map((todos, i) => todos.filter(t => t.isComplete))
@@ -51,10 +54,12 @@ export class TodoService {
 
    }
 
+    // MODIF
     filterTodos(filter: "all" | "remaining" | "done") {
       this.filter = filter;
     }
 
+    // MODIF
     get selectedTodos() {
       if (this.filter == "all") {
         return this.todos;

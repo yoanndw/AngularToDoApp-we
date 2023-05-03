@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'todo-app';
 
+  // MODIF
   filter: "all" | "remaining" | "done" = "all";
 }
