@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { of } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import {Todo} from './../model/todo';
 
 @Injectable({
@@ -28,7 +29,10 @@ export class TodoService {
    }
 
    getTodos(){
-     return of(this.todos);
+    //  return of(this.todos);
+    return of(this.todos).pipe(
+      map((todos, i) => todos.filter(t => t.isComplete))
+    );
    }
 
    addTodo(todo: Todo){

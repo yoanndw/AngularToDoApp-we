@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { TodoService } from 'src/app/service/todo.service';
 import {Todo} from '../../model/todo';
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +8,7 @@ import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css']
 })
-export class TodosComponent implements OnInit {
+export class TodosComponent implements OnInit, OnChanges {
 
   faTrashAlt = faTrashAlt;
   todos: Todo[] = [];
@@ -23,6 +23,15 @@ export class TodosComponent implements OnInit {
       (todos) => {
         this.todos = todos;
       });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("on todos changes");
+    this.todoService.getTodos().subscribe(
+      (todos) => {
+        this.todos = todos;
+      });
+
   }
 
   changeStatus(todo: Todo){
