@@ -13,12 +13,12 @@ export class TodosComponent implements OnInit, OnChanges {
   faTrashAlt = faTrashAlt;
   todos: Todo[] = [];
 
-  @Input() filter = "all";
+  @Input() filter: "all" | "done" | "remaining" = "all";
 
   constructor(private todoService:TodoService) { }
 
   ngOnInit(): void {
-
+    console.log("on todos init");
     this.todoService.getTodos().subscribe(
       (todos) => {
         this.todos = todos;
@@ -26,12 +26,19 @@ export class TodosComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("on todos changes");
+    // this.todoService.getTodos().subscribe(
+    //   (todos) => {
+    //     this.todos = todos;
+    //   });
+
+    // Quand changement de filtre => update
+    let newFilter = changes.filter.currentValue;
+    this.todoService.filterTodos(newFilter);
+
     this.todoService.getTodos().subscribe(
       (todos) => {
         this.todos = todos;
       });
-
   }
 
   changeStatus(todo: Todo){
