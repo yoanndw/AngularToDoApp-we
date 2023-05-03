@@ -1,7 +1,8 @@
 <form>
     <p>Filter</p>
 
-    <button (click)="filterAll.emit()">All</button>
-    <button (click)="filterRemaining.emit()">Remaining</button>
-    <button (click)="filterDone.emit()">Done</button>
+    <button class="btn" (click)="onFilterAll()" [ngClass]="buttonClasses('all')">All</button>
+    <button class="btn" (click)="onFilterRemaining()"
+        [ngClass]="buttonClasses('remaining')">Remaining</button>
+    <button class="btn" (click)="onFilterDone()" [ngClass]="buttonClasses('done')">Done</button>
 </form>
